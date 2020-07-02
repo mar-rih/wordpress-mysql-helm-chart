@@ -1,14 +1,12 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "WPMySql.fullname" . -}}
+{{- $fullName := include "wordpress.fullname" . -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
+  namespace: {{ .Values.namespace }}
   labels:
-    app.kubernetes.io/name: {{ include "WPMySql.name" . }}
-    helm.sh/chart: {{ include "WPMySql.chart" . }}
-    app.kubernetes.io/instance: {{ .Release.Name }}
-    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    {{- include "wordpress.labels" . | nindent 4 }}    
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
