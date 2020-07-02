@@ -5,8 +5,9 @@ wordpress:
         image: wordpress:4.8-apache
         replicaCount: 1
     service:
-        type: LoadBalancer
+        type: NodePort
         port: 80
+        nodePort: 80
     
 mysql:
     deployment:
