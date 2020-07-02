@@ -1,14 +1,9 @@
-# Kubernetes WordPress + MySQL helm chart
+# Kubernetes WordPress + MySQL helm chart + Ingress
 
-The simplest example of a helm chart for WordPress and MySQL (**chart** directory).
-
-Also, original manifests provided for using via **kubectl** (**original-manifests** directory).
-
-This demo was used with GCP Kubernetes cluster.
+This demo was created over kubadm create Kubernetes cluster.
 
 # Dependencies
 
-* **gcloud** ([installation guide is here](https://cloud.google.com/sdk/docs/quickstarts/))
 * **kubectl** ([installation guide is here](https://kubernetes.io/docs/tasks/tools/install-kubectl/))
 * **helm** ([installation guide is here](https://helm.sh/docs/intro/install/))
 
@@ -68,9 +63,9 @@ Now you can check this IP address with web-browser
 # Helm Variables
 Defined in [values.yaml](https://github.com/ltblueberry/wordpress-mysql-helm-chart/blob/develop/values.yaml)
 
-| Name              | Default Value       |Difinition   |
-|-----------------------|---------------------|---------------------|
-| `namespace` | `demo-application` |Kubernetes namespace|
+| Name              | Default Value       |Difinition           |
+|-------------------|---------------------|---------------------|
+| `namespace`       | `wp-mysql`          |Kubernetes namespace |
 
 ## `wordpress`:
 | Name              | Default Value       |Difinition   |
