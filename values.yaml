@@ -1,4 +1,4 @@
-namespace: demo-application
+namespace: wp-mysql
 
 wordpress:
     deployment:
