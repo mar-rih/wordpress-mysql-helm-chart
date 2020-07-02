@@ -65,25 +65,40 @@ Defined in [values.yaml](https://github.com/ltblueberry/wordpress-mysql-helm-cha
 
 | Name              | Default Value       |Difinition           |
 |-------------------|---------------------|---------------------|
-| `namespace`       | `wp-mysql`          |Kubernetes namespace |
+| `namespace`       | `wp-mysql`          |Kubernetes namespace 
+
 
 ## `wordpress`:
 | Name              | Default Value       |Difinition   |
 |-----------------------|---------------------|---------------------|
-| `deployment.image` | `wordpress:4.8-apache` |Docker image for Wordpress|
+| `deployment.image` | `wordpress:4.8-apache` |Docker image for Wordpress
 |`deployment.replicaCount` | `1` |Number of Pods to run
 |`service.type` |` LoadBalancer` |Kubernetes Service type
-|`service.port` | `80 `|Publishing port
+|`service.port` | `80 `|service port
+|`service.nodePort` | `80 `|Publishing port
+| `resources`| `` | optional resources requests/limits
+
 
 ## `mysql`:
 | Name              | Default Value       |Difinition   |
 |-----------------------|---------------------|---------------------|
-| `deployment.image` | `mysql:5.6` |Docker image for MySQL|
+| `deployment.image` | `mysql:5.6` |Docker image for MySQL
 |`deployment.replicaCount` | `1` |Number of Pods to run
 |`service.type` |` ClusterIP` |Kubernetes Service type
 |`service.port` | `3306 `|Publishing port
 |`pvc.accessMode` | `ReadWriteOnce `|PVC Access mode
 |`pvc.storage` | `2Gi `|PVC Storage size
+
+## `ingress`:
+| Name              | Default Value       |Difinition   |
+|-----------------------|---------------------|---------------------|
+|`ingress.enabled` | `true` |enable / disable engress plugin
+|`ingress.annotations` | `` |Annotations of ingress object
+|`hosts.host` |` chart-example.local` |domain host value
+|`hosts.paths` | ` `|URL sub folder path
+|`ingress.tls` | ` `|SSL Certificate path
+
+
 
 # Uninstall
 1) Execute the next command to get the list of helm releases
@@ -99,4 +114,4 @@ helm uninstall RELEASE_NAME
 
 **[MIT License](LICENSE)**
 
-Copyright (c) 2020 [ltblueberry](https://github.com/ltblueberry)
+Copyright (c) 2020 [mar-rih](https://github.com/mar-rih)
