@@ -6,7 +6,7 @@ metadata:
   labels:
     {{- include "mysql.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.mysql.service.type }}
+  clusterIP: None
   ports:
   - name: mysql
     port: {{ .Values.mysql.service.port }}
